@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <title>كيف أبدأ البرمجة بالطريقة الصحيحة؟</title>
+  <meta name="description" content="دليل تفاعلي شامل ومنهجي لتعلم البرمجة من الصفر باللغة العربية" />
+
+  <!-- PWA: Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#3B5BFD" />
+
+  <!-- أيقونات -->
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- دعم iOS: Standalone + Splash -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ابدأ البرمجة" />
+  <link rel="apple-touch-startup-image" href="icons/icon-512.png" />
+
+  <!-- خطوط عربية: Cairo (عرض) + IBM Plex Sans Arabic (نص) + Fira Code (كود) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="app-shell"></div>
+
+  <!-- شاشة تحميل أولية بسيطة تُخفى بعد التصيير الأول -->
+  <div id="boot-splash" class="boot-splash">
+    <div class="boot-mark">🧭</div>
+    <div class="boot-title">كيف أبدأ البرمجة؟</div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const s = document.getElementById("boot-splash");
+        if (s) {
+          s.classList.add("hide");
+          setTimeout(() => s.remove(), 400);
+        }
+      }, 350);
+    });
+  </script>
+</body>
+</html>
